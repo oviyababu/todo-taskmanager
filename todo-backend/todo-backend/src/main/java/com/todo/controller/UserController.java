@@ -1,20 +1,33 @@
 package com.todo.controller;
 
-import com.todo.model.User;
-import com.todo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.todo.model.User;
+import com.todo.service.UserService;
+
 @RestController
-@RequestMapping("/api/users")
-@CrossOrigin(origins = "*")
+@RequestMapping("/users")
+@CrossOrigin
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @PostMapping("/register")
     public User register(@RequestBody User user) {
-        return userRepository.save(user);
+        return userService.register(user);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody User user) {
+        try {
+            User loggedInUser = userService.login(user.getEmail(), user.getPassword());
+            return ResponseEntity.ok(loggedInUser);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }
+

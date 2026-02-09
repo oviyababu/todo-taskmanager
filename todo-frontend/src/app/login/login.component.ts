@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   error: string = '';
   showPassword: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
   togglePassword() {
     this.showPassword = !this.showPassword;
@@ -25,6 +26,7 @@ export class LoginComponent {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
     const passwordRegex = /^(?=.*\d)[A-Za-z\d]{5,}$/;
 
+    // Validation
     if (!nameRegex.test(this.name)) {
       this.error = 'Name must contain only alphabets';
       return;
@@ -40,10 +42,23 @@ export class LoginComponent {
       return;
     }
 
-    // save user
-    localStorage.setItem('username', this.name);
+    // Prepare login data
+    const loginData = {
+      email: this.email,
+      password: this.password
+    };
 
-    // navigate to task page
-    this.router.navigate(['/tasks']);
+    // Call backend login API
+    this.http.post<any>('http://localhost:8080/users/login', loginData).subscribe({
+      next: (res) => {
+        // Success
+        localStorage.setItem('username', res.name);
+        this.router.navigate(['/tasks']);
+      },
+      error: (err) => {
+        // Error from backend
+        this.error = err.error;
+      }
+    });
   }
 }
