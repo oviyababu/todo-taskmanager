@@ -1,0 +1,19 @@
+# Node
+node_modules/
+dist/
+.angular/
+
+# Angular
+todo-frontend/node_modules/
+todo-frontend/dist/
+
+# Java
+target/
+*.jar
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
