@@ -1,0 +1,115 @@
+/* ===============================
+   GLOBAL DARK THEME
+=================================*/
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+/* Center container */
+.container {
+  max-width: 650px;
+}
+
+/* ===============================
+   CARDS
+=================================*/
+.card {
+  background: rgba(20, 20, 35, 0.95);
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Task title */
+.task-card h6 {
+  color: #4facfe;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Task description */
+.task-card .description {
+  color: #dcdcdc;
+  margin-top: 8px;
+}
+
+/* ===============================
+   INPUTS
+=================================*/
+input,
+.form-control {
+  background: #1b1b2f !important;
+  color: #ffffff !important;
+  border: 1px solid #3a3a5a !important;
+  border-radius: 8px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaaaaa !important;
+}
+
+/* ===============================
+   BUTTONS
+=================================*/
+.btn-primary {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border: none;
+  color: white;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.btn-danger {
+  border-radius: 8px;
+}
+
+/* ===============================
+   EDITOR
+=================================*/
+.editor-toolbar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.editor-toolbar .btn {
+  background: #1b1b2f;
+  color: white;
+  border: 1px solid #3a3a5a;
+}
+
+.editor-toolbar .btn:hover {
+  background: #4facfe;
+  color: rgb(141, 68, 68);
+}
+
+.editor-box {
+  background: #1b1b2f !important;
+  color: #ffffff !important;
+  min-height: 120px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #3a3a5a;
+}
+
+/* ===============================
+   DATE TEXT
+=================================*/
+small.text-info {
+  color: #00f2fe !important;
+}
+a.text-info {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a.text-info:hover {
+  text-decoration: underline;
+}

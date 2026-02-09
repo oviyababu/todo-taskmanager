@@ -1,0 +1,47 @@
+.task-card {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: white;
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.completed-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.badge {
+  font-size: 0.7rem;
+}
+.created-date {
+  color: white;
+  font-size: 0.85rem;
+}
+.clickable-title {
+  cursor: pointer;
+}
+
+.task-description {
+  color: white;
+  margin-bottom: 6px;
+}
+
+.created-date {
+  color: white;
+  font-size: 0.85rem;
+}
+
+.due-date {
+  color: #38bdf8;
+  font-size: 0.85rem;
+}
+
+.completed-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
